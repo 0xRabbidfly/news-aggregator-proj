@@ -1,8 +1,8 @@
 from fastapi import APIRouter, HTTPException, Query
 from typing import Optional, List
 
-from src.services.news_service import get_news_articles
-from src.models.news import ArticleResponse
+from ..services.news_service import get_news_articles
+from ..models.news import ArticleResponse
 
 router = APIRouter(tags=["news"])
 

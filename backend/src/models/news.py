@@ -1,21 +1,24 @@
-from pydantic import BaseModel, Field, HttpUrl
-from typing import List, Optional
+from pydantic import BaseModel, HttpUrl
+from typing import Optional, List, Dict, Union, Literal
+from datetime import datetime
 
-class Source(BaseModel):
-    id: Optional[str] = None
-    name: str
+CategoryType = Literal['general', 'business', 'entertainment', 'health', 'science', 'sports', 'technology']
+
+class Sentiment(BaseModel):
+    polarity: float
+    label: str
 
 class Article(BaseModel):
-    source: Source
-    author: Optional[str] = None
     title: str
     description: Optional[str] = None
     url: HttpUrl
     urlToImage: Optional[HttpUrl] = None
     publishedAt: str
-    content: Optional[str] = None
+    source: Optional[str] = None
+    author: Optional[str] = None
+    sentiment: Optional[Sentiment] = None
+    category: CategoryType = 'general'
 
-class ArticleResponse(BaseModel):
-    status: str
-    totalResults: int
-    articles: List[Article] 
+class NewsResponse(BaseModel):
+    articles: List[Article]
+    total: int 

@@ -1,26 +1,26 @@
-import './globals.css'
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
+import DarkModeToggle from "@/components/DarkModeToggle";
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'AI News Aggregator',
-  description: 'Transform your news reading experience with AI-powered insights and analysis.',
-}
+  title: "News Aggregator",
+  description: "A modern news aggregator built with Next.js and FastAPI",
+};
 
 export default function RootLayout({
   children,
-}: {
-  children: React.ReactNode
-}) {
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <body className={inter.className}>
-        <main className="min-h-screen">
-          {children}
-        </main>
+        {children}
+        <DarkModeToggle />
       </body>
     </html>
-  )
-} 
+  );
+}
