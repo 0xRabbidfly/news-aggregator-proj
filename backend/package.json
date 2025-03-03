@@ -1,0 +1,13 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "AI News Aggregator Backend",
+  "scripts": {
+    "start": "python -m uvicorn src.main:app --host 0.0.0.0 --port 8000",
+    "dev": "python -m uvicorn src.main:app --host 0.0.0.0 --port 8000 --reload"
+  },
+  "keywords": ["news", "ai", "aggregator", "fastapi"],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.5.2"
+}
